@@ -20,10 +20,10 @@ print(dataset[1])
 print(dataset[2])
 print(dataset[3])
 
-# start_date ------------------------------------------------------------
+# start_date ------------------------------------------------------------------------------------------------
 
 
-# durations ------------------------------------------------------------
+# durations ------------------------------------------------------------------------------------------------
 # datetime_durations = [datetime.strptime(time.strip(), '%H:%M:%S').time() for time in dataset[1]]
 # numeric_durations = [(dt.hour * 3600) + (dt.minute * 60) + dt.second for dt in datetime_durations]
 # mean = np.mean(numeric_durations)
@@ -51,28 +51,60 @@ print(dataset[3])
 # plt.legend()
 # plt.show()
 
-# station_name_start ------------------------------------------------------------
+# station_name_start ------------------------------------------------------------------------------------------------
 station_counter = Counter(list(map(str.strip, dataset[2])))
 locations = list(station_counter.keys())
 visit_counts = list(station_counter.values())
-addresses = list(station_counter.keys())
+
+coordinate_dict = {
+    "Fort York Blvd / Garrison Rd":"43.63739613451603, -79.40612171600311",
+    "Kew Beach Ave / Kenilworth Ave":"43.66633047663169, -79.30140222538206"
+}
 
 # Obtain coordinates for each address using geocoding
 geolocator = Nominatim(user_agent='heatmap_example')
 coordinates = []
-for address in addresses:
-    location = geolocator.geocode(address)
-    # print('the coordinates for '+str(address)+' are '+str(location))
-    if location is not None:
-        coordinates.append((location.latitude, location.longitude))
+check = 0
+for location, visit_count in zip(locations,visit_counts):
+    # Cleanup
+    if location.endswith(' - SMART'):
+        location = location[:-len(' - SMART')]
+    # Find coordinates
+    coordinate = geolocator.geocode(location)
+    print('the coordinate for '+str(location)+' are '+str(coordinate))
+    # Try Again
+    if coordinate is None:
+        try:
+            parts = location.split('/')
+            location = (parts[1] + " / " + parts[0]).strip()
+            coordinate = geolocator.geocode(location)
+            # print('the coordinate for ' + str(location) + ' are ' + str(coordinate))
+        except:
+            pass
+    # Hard code the coordinates
+    if coordinate is None:
+        try:
+            coordinate = coordinate_dict[location]
+            check = 1
+            # print('the coordinate for ' + str(location) + ' are ' + str(coordinate))
+        except:
+            pass
+    # Exit
+    if coordinate is not None:
+        if check == 0:
+            # print(str(coordinate.latitude)+" / "+str(coordinate.longitude))
+            # coordinates.append((coordinate.latitude, coordinate.longitude,visit_count))
+        elif check == 1:
+            check = 0
+            coordinate_latitude = float(coordinate.split(',')[0].trim())
+            coordinate_longitude = float(coordinate.split(',')[1].trim())
+            coordinates.append((coordinate_latitude, coordinate_longitude, visit_count))
 
 # Create the base map using OpenStreetMap tiles
-heatmap_map = folium.Map(location=coordinates[0], zoom_start=12, tiles='OpenStreetMap')
-# Prepare the data for the heat map
-heat_data = [[coord[0], coord[1], count] for coord, count in zip(coordinates, visit_counts)]
+heatmap_map = folium.Map(location=coordinates[0][0:2], zoom_start=12, tiles='OpenStreetMap')
 # Add the heatmap layer to the base map
-HeatMap(heat_data).add_to(heatmap_map)
+HeatMap(coordinates).add_to(heatmap_map)
 heatmap_map.save('heatmap_map.html')
 
-# station_name_end ------------------------------------------------------------
+# station_name_end ------------------------------------------------------------------------------------------------
 
