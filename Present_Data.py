@@ -15,13 +15,13 @@ with open('list_file.txt', 'r') as file:
     for line in file:
         elements = line.strip().split(',')
         dataset.append(elements)
-print(dataset[0])
-print(dataset[1])
-print(dataset[2])
-print(dataset[3])
+# print(dataset[0])
+# print(dataset[1])
+# print(dataset[2])
+# print(dataset[3])
 
 # start_date ------------------------------------------------------------------------------------------------
-
+# Rides per month / time of day / etc
 
 # durations ------------------------------------------------------------------------------------------------
 # datetime_durations = [datetime.strptime(time.strip(), '%H:%M:%S').time() for time in dataset[1]]
@@ -56,55 +56,45 @@ station_counter = Counter(list(map(str.strip, dataset[2])))
 locations = list(station_counter.keys())
 visit_counts = list(station_counter.values())
 
-coordinate_dict = {
-    "Fort York Blvd / Garrison Rd":"43.63739613451603, -79.40612171600311",
-    "Kew Beach Ave / Kenilworth Ave":"43.66633047663169, -79.30140222538206"
-}
-
 # Obtain coordinates for each address using geocoding
-geolocator = Nominatim(user_agent='heatmap_example')
-coordinates = []
-check = 0
-for location, visit_count in zip(locations,visit_counts):
-    # Cleanup
-    if location.endswith(' - SMART'):
-        location = location[:-len(' - SMART')]
-    # Find coordinates
-    coordinate = geolocator.geocode(location)
-    print('the coordinate for '+str(location)+' are '+str(coordinate))
-    # Try Again
-    if coordinate is None:
-        try:
-            parts = location.split('/')
-            location = (parts[1] + " / " + parts[0]).strip()
-            coordinate = geolocator.geocode(location)
-            # print('the coordinate for ' + str(location) + ' are ' + str(coordinate))
-        except:
-            pass
-    # Hard code the coordinates
-    if coordinate is None:
-        try:
-            coordinate = coordinate_dict[location]
-            check = 1
-            # print('the coordinate for ' + str(location) + ' are ' + str(coordinate))
-        except:
-            pass
-    # Exit
-    if coordinate is not None:
-        if check == 0:
-            # print(str(coordinate.latitude)+" / "+str(coordinate.longitude))
-            # coordinates.append((coordinate.latitude, coordinate.longitude,visit_count))
-        elif check == 1:
-            check = 0
-            coordinate_latitude = float(coordinate.split(',')[0].trim())
-            coordinate_longitude = float(coordinate.split(',')[1].trim())
-            coordinates.append((coordinate_latitude, coordinate_longitude, visit_count))
+from Location_to_Coordinates import location_to_coordinates
+coordinates = location_to_coordinates(locations,visit_counts)
+# print(coordinates)
 
 # Create the base map using OpenStreetMap tiles
 heatmap_map = folium.Map(location=coordinates[0][0:2], zoom_start=12, tiles='OpenStreetMap')
 # Add the heatmap layer to the base map
 HeatMap(coordinates).add_to(heatmap_map)
-heatmap_map.save('heatmap_map.html')
+heatmap_map.save('start_heatmap_map.html')
 
 # station_name_end ------------------------------------------------------------------------------------------------
+station_counter = Counter(list(map(str.strip, dataset[3])))
+locations = list(station_counter.keys())
+visit_counts = list(station_counter.values())
 
+# Obtain coordinates for each address using geocoding
+from Location_to_Coordinates import location_to_coordinates
+coordinates = location_to_coordinates(locations,visit_counts)
+# print(coordinates)
+
+# Create the base map using OpenStreetMap tiles
+heatmap_map = folium.Map(location=coordinates[0][0:2], zoom_start=12, tiles='OpenStreetMap')
+# Add the heatmap layer to the base map
+HeatMap(coordinates).add_to(heatmap_map)
+heatmap_map.save('end_heatmap_map.html')
+
+# station_name_combined ------------------------------------------------------------------------------------------------
+station_counter = Counter(list(map(str.strip, dataset[2]+dataset[3])))
+locations = list(station_counter.keys())
+visit_counts = list(station_counter.values())
+
+# Obtain coordinates for each address using geocoding
+from Location_to_Coordinates import location_to_coordinates
+coordinates = location_to_coordinates(locations,visit_counts)
+# print(coordinates)
+
+# Create the base map using OpenStreetMap tiles
+heatmap_map = folium.Map(location=coordinates[0][0:2], zoom_start=12, tiles='OpenStreetMap')
+# Add the heatmap layer to the base map
+HeatMap(coordinates).add_to(heatmap_map)
+heatmap_map.save('combined_heatmap_map.html')
