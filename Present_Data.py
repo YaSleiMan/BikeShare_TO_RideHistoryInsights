@@ -30,6 +30,7 @@ max = np.max(numeric_durations)
 num_points = 1000
 data_points = np.random.normal(mean, std_dev, num_points)
 # Plot the histogram
+plt.figure(figsize=(8, 6))
 plt.hist(numeric_durations, bins=24*3, density=True, alpha=0.6, label='Histogram')
 # Overlay the Gaussian curve
 x_values = np.linspace(0, 24*3600, num_points)
@@ -55,11 +56,12 @@ datetime_months = [datetime.strptime(time.strip(), '%m-%d-%Y %H:%M:%S').month fo
 numeric_durations = datetime_months
 
 # Plot the histogram
+plt.figure(figsize=(8, 6))
 plt.hist(numeric_durations, bins=12, label='Histogram',width=0.85)
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September', 'October', 'November', 'December']
 plt.xticks(np.linspace(1, 12, 12),months,rotation=45)
 
-starting_month = 6
+starting_month = numeric_durations[0]
 plt.axvline(x=starting_month, color='r', linestyle='--', label='Starting Month\n2022 (right) / 2023 (left)')
 
 plt.xlabel('Months')
@@ -82,6 +84,7 @@ max = np.max(numeric_durations)
 num_points = 1000
 data_points = np.random.normal(mean, std_dev, num_points)
 # Plot the histogram
+plt.figure(figsize=(8, 6))
 plt.hist(numeric_durations, bins=50*2, density=True, alpha=0.6, label='Histogram')
 # Overlay the Gaussian curve
 x_values = np.linspace(np.min(numeric_durations), np.max(numeric_durations), num_points)
@@ -104,7 +107,6 @@ plt.close()
 # station_name_start ------------------------------------------------------------------------------------------------
 station_counter = Counter(list(map(str.strip, dataset[2])))
 locations = list(station_counter.keys())
-print(locations)
 visit_counts = list(station_counter.values())
 
 # Obtain coordinates for each address using geocoding

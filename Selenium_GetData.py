@@ -35,8 +35,8 @@ time.sleep(2)
 dropdown = Select(driver.find_element(By.ID, 'period'))
 dropdown.select_by_value('custom')
 
-startTime = datetime(2023, 5, 1)
-endTime = datetime(2023, 5, 30)
+startTime = datetime(2022, 6, 5)
+endTime = datetime(2023, 6, 19)
 timeDelta = endTime - startTime
 iterations = timeDelta.days
 queryWindow = 7
