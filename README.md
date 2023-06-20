@@ -19,3 +19,9 @@ The Bike Share website only lets you look at a limited number of past trips at a
     2.6- (Heatmap) Where have the rides taken you
     
 3- The files should all show up in the outputs folder. The graphs as pictures and the heatmap as html that can be viewed in your browser (tested with Chrome)
+
+# Current Objectives:
+
+- The geocoder used for the heatmap is incorrectly placing some locations in other countries. Considering how many values currently have to be hardcoded perhaps another method of obtaining the coordinates should be used.
+- The heat values associated with the coordinates may not be fully lining up, need to look into that
+- A frontend UI could be interesting to add to this code, for the login info and start/end dates
