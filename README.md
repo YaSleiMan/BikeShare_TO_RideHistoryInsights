@@ -1,4 +1,4 @@
-# TorontoBikeShare_RideHistoryQuery
+# Toronto Bike Share: Ride History Query and Presenter
 The Bike Share website only lets you look at a limited number of past trips at a time in the history section. This automation is used to obtain your full trip history and visualize that data much more easily.
 
 # How to Use
