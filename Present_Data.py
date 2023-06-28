@@ -80,6 +80,7 @@ def present_data():
     std_dev = np.std(numeric_durations)
     min = np.min(numeric_durations)
     max = np.max(numeric_durations)
+    total = str(timedelta(seconds=round(float(sum(numeric_durations)))))
 
     # Generate data points following a normal distribution
     num_points = 1000
@@ -98,7 +99,7 @@ def present_data():
     plt.xlabel('Time')
     plt.ylabel('Frequency')
     plt.title('Trip Durations\n\
-     # of trips: '+str(len(dataset[1]))+' / Average: '+str(timedelta(seconds=round(float(mean)))).split(", ")[-1]+'\n\
+     # of trips: '+str(len(dataset[1]))+' / Total Ride Time: '+total+' / Average: '+str(timedelta(seconds=round(float(mean)))).split(", ")[-1]+'\n\
      Shortest Ride: '+str(timedelta(seconds=round(float(min)))).split(", ")[-1]+' / Longest Ride: '+str(timedelta(seconds=round(float(max)))).split(", ")[-1])
     plt.legend()
     plt.savefig('Outputs/RidesDurationsHist.png')

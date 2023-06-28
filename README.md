@@ -24,4 +24,5 @@ The Bike Share website only lets you look at a limited number of past trips at a
 
 - The geocoder used for the heatmap is incorrectly placing some locations in other countries. Considering how many values currently have to be hardcoded perhaps another method of obtaining the coordinates should be used.
 - The heat values associated with the coordinates may not be fully lining up, need to look into that
-- A frontend UI could be interesting to add to this code, for the login info and start/end dates
+- ~~A frontend UI could be interesting to add to this code, for the login info and start/end dates~~
+- ~~Add a cost savings calculation function to estimate how much money was saved by riding bikes instead of using the TTC~~

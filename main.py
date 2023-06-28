@@ -1,7 +1,10 @@
 import tkinter as tk
 from PIL import ImageTk, Image
+from tkinterhtml import HtmlFrame
+from html.parser import HTMLParser
 from Selenium_GetData import selenium_getdata
 from Present_Data import present_data
+from Cost_Savings_Calculator import cost_savings_calculator
 
 # Global Definition
 image_tk1 = None
@@ -37,13 +40,17 @@ def get_and_present():
     labelMonth = tk.Label(window, image=image_tk1)
     labelMonth.grid(row=0, column=0)
 
-    image_tk2 = ImageTk.PhotoImage(Image.open("Outputs/TimeOfDayHist.jpeg").resize((400, 300)))
+    image_tk2 = ImageTk.PhotoImage(Image.open("Outputs/TimeOfDayHist.png").resize((400, 300)))
     labelTime = tk.Label(window, image=image_tk2)
     labelTime.grid(row=0, column=1)
 
     image_tk3 = ImageTk.PhotoImage(Image.open("Outputs/RidesDurationsHist.png").resize((400, 300)))
     labelDuration = tk.Label(window, image=image_tk3)
-    labelDuration.grid(row=0, column=2)
+    labelDuration.grid(row=1, column=0)
+
+    savings = "By using Toronto Bike Share you've saved at least "+str(cost_savings_calculator())+"$"
+    text_label = tk.Label(window, text=savings)
+    text_label.grid(row=1, column=1)
 
     # Update the window
     window.update()
