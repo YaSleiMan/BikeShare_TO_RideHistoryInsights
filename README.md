@@ -23,6 +23,6 @@ The Bike Share website only lets you look at a limited number of past trips at a
 # Current Objectives:
 
 - The geocoder used for the heatmap is incorrectly placing some locations in other countries. Considering how many values currently have to be hardcoded perhaps another method of obtaining the coordinates should be used.
-- The heat values associated with the coordinates may not be fully lining up, need to look into that
+- ~~The heat values associated with the coordinates may not be fully lining up, need to look into that.~~ The values are lining up correctly but the number of times each station is visited can range dramatically so due to the scaling used only one point is highlighted red when zooming in while all the others seem blue despite still being visited a significant number of times.
 - ~~A frontend UI could be interesting to add to this code, for the login info and start/end dates~~
 - ~~Add a cost savings calculation function to estimate how much money was saved by riding bikes instead of using the TTC.~~ Forgot to account for the cost of ebike rides, needs an update.

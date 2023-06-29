@@ -119,7 +119,7 @@ def present_data():
     # Create the base map using OpenStreetMap tiles
     heatmap_map = folium.Map(location=coordinates[0][0:2], zoom_start=12, tiles='OpenStreetMap')
     # Add the heatmap layer to the base map
-    HeatMap(coordinates).add_to(heatmap_map)
+    HeatMap(coordinates, normalize_scale=True).add_to(heatmap_map)
     heatmap_map.save('Outputs/start_heatmap_map.html')
 
     # station_name_end ------------------------------------------------------------------------------------------------
@@ -153,3 +153,6 @@ def present_data():
     # Add the heatmap layer to the base map
     HeatMap(coordinates).add_to(heatmap_map)
     heatmap_map.save('Outputs/combined_heatmap_map.html')
+
+
+present_data()

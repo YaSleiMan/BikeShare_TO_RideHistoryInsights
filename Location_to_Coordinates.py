@@ -42,13 +42,13 @@ def location_to_coordinates(locations, visit_counts):
         "D'Arcy St / Spadina Ave": "43.65393453375615, -79.3983147057624",
         "Richmond St E / Jarvis St Green P": "43.65267522851995, -79.37409513697031",
         "York St / Lake Shore Blvd W": "43.64163506354045, -79.3809951194067",
-        "Richmond St W / York St": "43.650449871107995, -79.38457274639377"
+        "Richmond St W / York St": "43.650449871107995, -79.38457274639377",
+        "Ontario St / Adelaide St E": "43.65341869886721, -79.36650162714241"
     }
 
     # Obtain coordinates for each address using geocoding
     geolocator = Nominatim(user_agent='heatmap_example')
     coordinates = []
-    check = 0
     for location, visit_count in zip(locations,visit_counts):
         # Cleanup
         if location.endswith(' - SMART'):
@@ -58,42 +58,39 @@ def location_to_coordinates(locations, visit_counts):
         elif location.endswith(' SMART'):
             location = location[:-len(' SMART')]
 
-        # Find coordinates
-        try:
-            coordinate = geolocator.geocode(location)
-        except:
-            coordinate = None
-        # print('the coordinate for '+str(location)+' are '+str(coordinate))
+        # Overwrite Geolocator / In Case Geolocator Fails
+        if location in coordinate_dict:
+            coordinate = coordinate_dict[location]
+            # print('the coordinate for ' + str(location) + ' are ' + str(coordinate))
 
-        # Try Again (Flipping streets)
-        if coordinate is None:
+            coordinate_latitude = float(coordinate.split(',')[0])
+            coordinate_longitude = float(coordinate.split(',')[1])
+            coordinates.append((coordinate_latitude, coordinate_longitude, visit_count))
+
+        else:
+            # Find coordinates
             try:
-                parts = location.split('/')
-                coordinate = geolocator.geocode((parts[1] + " / " + parts[0]).strip())
-                # print('the coordinate for ' + str(location) + ' are ' + str(coordinate))
+                coordinate = geolocator.geocode(location)
             except:
-                pass
+                coordinate = None
+            # print('the coordinate for '+str(location)+' are '+str(coordinate))
 
-        # Hard code the coordinates
-        if coordinate is None:
-            try:
-                coordinate = coordinate_dict[location]
-                check = 1
-                # print('the coordinate for ' + str(location) + ' are ' + str(coordinate))
-            except:
-                print('"' + str(location) + '" : "",')
-                pass
+            # Try Again (Flipping streets)
+            if coordinate is None:
+                try:
+                    parts = location.split('/')
+                    coordinate = geolocator.geocode((parts[1] + " / " + parts[0]).strip())
+                    # print('the coordinate for ' + str(location) + ' are ' + str(coordinate))
+                except:
+                    pass
 
-        # Exit
-        if coordinate is not None:
-            if check == 0:
+            # Exit
+            if coordinate is not None:
                 # print(str(coordinate.latitude)+" / "+str(coordinate.longitude))
                 coordinates.append((coordinate.latitude, coordinate.longitude,visit_count))
-            elif check == 1:
-                check = 0
-                coordinate_latitude = float(coordinate.split(',')[0])
-                coordinate_longitude = float(coordinate.split(',')[1])
-                coordinates.append((coordinate_latitude, coordinate_longitude,visit_count))
+
+            if coordinate is None:
+                print('"' + str(location) + '" : "",')
 
     print(str(len(coordinates))+" out of "+str(len(locations))+" coordinates found")
     return(coordinates)
