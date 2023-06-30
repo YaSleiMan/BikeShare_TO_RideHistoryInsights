@@ -110,6 +110,15 @@ def present_data():
     station_counter = Counter(list(map(str.strip, dataset[2])))
     locations = list(station_counter.keys())
     visit_counts = list(station_counter.values())
+    z_scores = (visit_counts - np.mean(visit_counts)) / np.std(visit_counts)
+    threshold = 2
+    outlier_indices = np.where(np.abs(z_scores) > threshold)[0]
+    outliers = [visit_counts[i] for i in outlier_indices]
+    for i in range(len(visit_counts)):
+        if z_scores[i]>threshold:
+            visit_counts[i] = min(outliers)
+    # print(min(outliers))
+    # print(visit_counts)
 
     # Obtain coordinates for each address using geocoding
     from Location_to_Coordinates import location_to_coordinates
@@ -119,13 +128,22 @@ def present_data():
     # Create the base map using OpenStreetMap tiles
     heatmap_map = folium.Map(location=coordinates[0][0:2], zoom_start=12, tiles='OpenStreetMap')
     # Add the heatmap layer to the base map
-    HeatMap(coordinates, normalize_scale=True).add_to(heatmap_map)
+    HeatMap(coordinates).add_to(heatmap_map)
     heatmap_map.save('Outputs/start_heatmap_map.html')
 
     # station_name_end ------------------------------------------------------------------------------------------------
     station_counter = Counter(list(map(str.strip, dataset[3])))
     locations = list(station_counter.keys())
     visit_counts = list(station_counter.values())
+    z_scores = (visit_counts - np.mean(visit_counts)) / np.std(visit_counts)
+    threshold = 2
+    outlier_indices = np.where(np.abs(z_scores) > threshold)[0]
+    outliers = [visit_counts[i] for i in outlier_indices]
+    for i in range(len(visit_counts)):
+        if z_scores[i] > threshold:
+            visit_counts[i] = min(outliers)
+    # print(min(outliers))
+    # print(visit_counts)
 
     # Obtain coordinates for each address using geocoding
     from Location_to_Coordinates import location_to_coordinates
@@ -142,6 +160,15 @@ def present_data():
     station_counter = Counter(list(map(str.strip, dataset[2]+dataset[3])))
     locations = list(station_counter.keys())
     visit_counts = list(station_counter.values())
+    z_scores = (visit_counts - np.mean(visit_counts)) / np.std(visit_counts)
+    threshold = 2
+    outlier_indices = np.where(np.abs(z_scores) > threshold)[0]
+    outliers = [visit_counts[i] for i in outlier_indices]
+    for i in range(len(visit_counts)):
+        if z_scores[i] > threshold:
+            visit_counts[i] = min(outliers)
+    # print(min(outliers))
+    # print(visit_counts)
 
     # Obtain coordinates for each address using geocoding
     from Location_to_Coordinates import location_to_coordinates
