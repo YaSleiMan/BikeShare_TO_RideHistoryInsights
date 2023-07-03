@@ -18,9 +18,17 @@ def present_data():
     # print(dataset[2])
     # print(dataset[3])
 
-    # start_date ------------------------------------------------------------------------------------------------
+    # Generate Graphs and Heatmaps
+    time_of_day(dataset[0])
+    rides_per_month(dataset[0])
+    ride_durations(dataset[1])
+    station_name_start(dataset[2])
+    station_name_end(dataset[3])
+    station_name_combined(dataset[2]+dataset[3])
+
+def time_of_day(dataset):
     # Time of day
-    datetime_time = [datetime.strptime(time.strip(), '%m-%d-%Y %H:%M:%S').time() for time in dataset[0]]
+    datetime_time = [datetime.strptime(time.strip(), '%m-%d-%Y %H:%M:%S').time() for time in dataset]
     numeric_durations = [(dt.hour * 3600) + (dt.minute * 60) + dt.second for dt in datetime_time]
     mean = np.mean(numeric_durations)
     std_dev = np.std(numeric_durations)
@@ -44,16 +52,15 @@ def present_data():
     plt.xlabel('Time of Day')
     plt.ylabel('Frequency')
     plt.title('Trip Start Times\n\
-     # of trips: '+str(len(dataset[1]))+' / Average: '+str(timedelta(seconds=round(float(mean)))).split(", ")[-1]+'\n\
+     # of trips: '+str(len(dataset))+' / Average: '+str(timedelta(seconds=round(float(mean)))).split(", ")[-1]+'\n\
      Earliest Ride: '+str(timedelta(seconds=round(float(min)))).split(", ")[-1]+' / Latest Ride: '+str(timedelta(seconds=round(float(max)))).split(", ")[-1])
     plt.legend()
     plt.savefig('Outputs/TimeOfDayHist.png')
     plt.show()
     plt.close()
 
-    #--------------------------------
-    # Rides in a month
-    datetime_months = [datetime.strptime(time.strip(), '%m-%d-%Y %H:%M:%S').month for time in dataset[0]]
+def rides_per_month(dataset):
+    datetime_months = [datetime.strptime(time.strip(), '%m-%d-%Y %H:%M:%S').month for time in dataset]
     numeric_durations = datetime_months
 
     # Plot the histogram
@@ -67,14 +74,14 @@ def present_data():
 
     plt.xlabel('Months')
     plt.ylabel('Frequency')
-    plt.title('Rides per Month\n# of trips: '+str(len(dataset[1])))
+    plt.title('Rides per Month\n# of trips: '+str(len(dataset)))
     plt.legend()
     plt.savefig('Outputs/RidesPerMonthHist.png')
     plt.show()
     plt.close()
 
-    # durations ------------------------------------------------------------------------------------------------
-    datetime_durations = [datetime.strptime(time.strip(), '%H:%M:%S').time() for time in dataset[1]]
+def ride_durations(dataset):
+    datetime_durations = [datetime.strptime(time.strip(), '%H:%M:%S').time() for time in dataset]
     numeric_durations = [(dt.hour * 3600) + (dt.minute * 60) + dt.second for dt in datetime_durations]
     mean = np.mean(numeric_durations)
     std_dev = np.std(numeric_durations)
@@ -99,15 +106,15 @@ def present_data():
     plt.xlabel('Time')
     plt.ylabel('Frequency')
     plt.title('Trip Durations\n\
-     # of trips: '+str(len(dataset[1]))+' / Total Ride Time: '+total+' / Average: '+str(timedelta(seconds=round(float(mean)))).split(", ")[-1]+'\n\
+     # of trips: '+str(len(dataset))+' / Total Ride Time: '+total+' / Average: '+str(timedelta(seconds=round(float(mean)))).split(", ")[-1]+'\n\
      Shortest Ride: '+str(timedelta(seconds=round(float(min)))).split(", ")[-1]+' / Longest Ride: '+str(timedelta(seconds=round(float(max)))).split(", ")[-1])
     plt.legend()
     plt.savefig('Outputs/RidesDurationsHist.png')
     plt.show()
     plt.close()
 
-    # station_name_start ------------------------------------------------------------------------------------------------
-    station_counter = Counter(list(map(str.strip, dataset[2])))
+def station_name_start(dataset):
+    station_counter = Counter(list(map(str.strip, dataset)))
     locations = list(station_counter.keys())
     visit_counts = list(station_counter.values())
     z_scores = (visit_counts - np.mean(visit_counts)) / np.std(visit_counts)
@@ -131,8 +138,9 @@ def present_data():
     HeatMap(coordinates).add_to(heatmap_map)
     heatmap_map.save('Outputs/start_heatmap_map.html')
 
+def station_name_end(dataset):
     # station_name_end ------------------------------------------------------------------------------------------------
-    station_counter = Counter(list(map(str.strip, dataset[3])))
+    station_counter = Counter(list(map(str.strip, dataset)))
     locations = list(station_counter.keys())
     visit_counts = list(station_counter.values())
     z_scores = (visit_counts - np.mean(visit_counts)) / np.std(visit_counts)
@@ -156,8 +164,8 @@ def present_data():
     HeatMap(coordinates).add_to(heatmap_map)
     heatmap_map.save('Outputs/end_heatmap_map.html')
 
-    # station_name_combined ------------------------------------------------------------------------------------------------
-    station_counter = Counter(list(map(str.strip, dataset[2]+dataset[3])))
+def station_name_combined(dataset):
+    station_counter = Counter(list(map(str.strip, dataset)))
     locations = list(station_counter.keys())
     visit_counts = list(station_counter.values())
     z_scores = (visit_counts - np.mean(visit_counts)) / np.std(visit_counts)
@@ -182,4 +190,7 @@ def present_data():
     heatmap_map.save('Outputs/combined_heatmap_map.html')
 
 
-present_data()
+#-----------------------------------------------------
+# Test the code
+# present_data()
+#-----------------------------------------------------

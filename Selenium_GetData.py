@@ -40,12 +40,13 @@ def selenium_getdata(username,password,startDate,endDate):
     endTime = datetime(*endDate)  # [2023, 6, 19]
     timeDelta = endTime - startTime
     iterations = timeDelta.days
-    queryWindow = 7
+    queryWindow = 7  # Days between start and end dates for the queries
 
     start_date_texts = []
     duration_texts = []
     station_name_start_texts = []
     station_name_end_texts = []
+    ride_price_texts = []
     for i in range(round(iterations/queryWindow)+1):
         startTime_field = driver.find_element(By.ID, 'date[start]')
         endTime_field = driver.find_element(By.ID, 'date[end]')
@@ -70,6 +71,8 @@ def selenium_getdata(username,password,startDate,endDate):
         station_name_start_texts = station_name_start_texts + [j.text.strip() for j in station_name_start if j.text.strip() != '' and not j.text.strip().startswith("Bike ID")]
         station_name_end = page_contents.find_all('div', class_='end-station-name-block')
         station_name_end_texts = station_name_end_texts + [j.text.strip() for j in station_name_end if j.text.strip() != '' and not j.text.strip().startswith("Price")]
+        ride_price_texts = ride_price_texts + [j.text.strip() for j in station_name_end if j.text.strip().startswith("Price")]
+
 
     driver.quit()
 
@@ -77,10 +80,12 @@ def selenium_getdata(username,password,startDate,endDate):
     print(duration_texts)
     print(station_name_start_texts)
     print(station_name_end_texts)
+    print(ride_price_texts)
     print(len(start_date_texts))
     print(len(duration_texts))
     print(len(station_name_start_texts))
     print(len(station_name_end_texts))
+    print(len(ride_price_texts))
 
     with open('list_file.txt', 'w') as file:
         file.write(', '.join(start_date_texts))
@@ -90,4 +95,8 @@ def selenium_getdata(username,password,startDate,endDate):
         file.write(', '.join(station_name_start_texts))
         file.write('\n')
         file.write(', '.join(station_name_end_texts))
+        file.write('\n')
+        file.write(', '.join(ride_price_texts))
 
+# Test
+# selenium_getdata('@gmail.com','',[2022, 6, 5],[2023, 6, 5])

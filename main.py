@@ -1,7 +1,5 @@
 import tkinter as tk
 from PIL import ImageTk, Image
-from tkinterhtml import HtmlFrame
-from html.parser import HTMLParser
 from Selenium_GetData import selenium_getdata
 from Present_Data import present_data
 from Cost_Savings_Calculator import cost_savings_calculator
@@ -30,6 +28,7 @@ def get_and_present():
 
     selenium_getdata(username,password,startDate,endDate)
     present_data()
+    costs = cost_savings_calculator()
 
     # Clear Window
     for widget in window.winfo_children():
@@ -48,7 +47,7 @@ def get_and_present():
     labelDuration = tk.Label(window, image=image_tk3)
     labelDuration.grid(row=1, column=0)
 
-    savings = "By using Toronto Bike Share you've saved at least "+str(cost_savings_calculator())+"$"
+    savings = "By using Toronto Bike Share you've saved at least "+str(costs[0])+"$"+"\nYou were charged " + str(costs[1]) + "$ for ebike rides"
     text_label = tk.Label(window, text=savings)
     text_label.grid(row=1, column=1)
 
