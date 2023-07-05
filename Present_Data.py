@@ -9,7 +9,7 @@ from folium.plugins import HeatMap
 def present_data():
     # Read the text file and convert it into a list of lists
     dataset = []
-    with open('list_file.txt', 'r') as file:
+    with open('Outputs/list_file.txt', 'r') as file:
         for line in file:
             elements = line.strip().split(',')
             dataset.append(elements)
@@ -19,9 +19,9 @@ def present_data():
     # print(dataset[3])
 
     # Generate Graphs and Heatmaps
-    time_of_day(dataset[0])
-    rides_per_month(dataset[0])
-    ride_durations(dataset[1])
+    # time_of_day(dataset[0])
+    # rides_per_month(dataset[0])
+    # ride_durations(dataset[1])
     station_name_start(dataset[2])
     station_name_end(dataset[3])
     station_name_combined(dataset[2]+dataset[3])
@@ -61,16 +61,18 @@ def time_of_day(dataset):
 
 def rides_per_month(dataset):
     datetime_months = [datetime.strptime(time.strip(), '%m-%d-%Y %H:%M:%S').month for time in dataset]
-    numeric_durations = datetime_months
+    ride_counter = Counter(datetime_months)
+    month = list(ride_counter.keys())
+    count = list(ride_counter.values())
 
     # Plot the histogram
     plt.figure(figsize=(8, 6))
-    plt.hist(numeric_durations, bins=12, label='Histogram',width=0.85)
+    plt.bar(month,count, label='Histogram',width=0.85)
     months = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September', 'October', 'November', 'December']
     plt.xticks(np.linspace(1, 12, 12),months,rotation=45)
 
-    starting_month = numeric_durations[0]
-    plt.axvline(x=starting_month, color='r', linestyle='--', label='Starting Month\n2022 (right) / 2023 (left)')
+    starting_month = datetime_months[0]
+    plt.axvline(x=starting_month, color='r', linestyle='--', label='Starting Month')
 
     plt.xlabel('Months')
     plt.ylabel('Frequency')
@@ -192,5 +194,5 @@ def station_name_combined(dataset):
 
 #-----------------------------------------------------
 # Test the code
-# present_data()
+present_data()
 #-----------------------------------------------------

@@ -87,7 +87,7 @@ def selenium_getdata(username,password,startDate,endDate):
     print(len(station_name_end_texts))
     print(len(ride_price_texts))
 
-    with open('list_file.txt', 'w') as file:
+    with open('Outputs/list_file.txt', 'w') as file:
         file.write(', '.join(start_date_texts))
         file.write('\n')
         file.write(', '.join(duration_texts))

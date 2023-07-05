@@ -3,7 +3,7 @@ from datetime import datetime
 def cost_savings_calculator():
     # Read the text file and convert it into a list of lists
     dataset = []
-    with open('list_file.txt', 'r') as file:
+    with open('Outputs/list_file.txt', 'r') as file:
         for line in file:
             elements = line.strip().split(',')
             dataset.append(elements)
