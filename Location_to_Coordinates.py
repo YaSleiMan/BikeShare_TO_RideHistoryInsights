@@ -2,6 +2,7 @@ import json
 import pandas as pd
 import requests
 
+
 def location_to_coordinates(locations, visit_counts):
     # Hardcoded Values
     coordinate_dict = {

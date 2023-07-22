@@ -6,6 +6,7 @@ from collections import Counter
 import folium
 from folium.plugins import HeatMap
 
+
 def present_data():
     # Read the text file and convert it into a list of lists
     dataset = []

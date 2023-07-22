@@ -8,6 +8,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
+
 def selenium_getdata(username,password,startDate,endDate):
     # Set the path to your ChromeDriver executable
     webdriver_service = Service('./chromeDriver/chromedriver.exe')

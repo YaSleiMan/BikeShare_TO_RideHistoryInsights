@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 def cost_savings_calculator():
     # Read the text file and convert it into a list of lists
     dataset = []
