@@ -1,7 +1,40 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .image-container img {
+            width: 30%;
+            height: auto;
+        }
+    </style>
+</head>
 <body>
-    <h1>Result:</h1>
-    <p>{{ result }}</p>
+    <h1>Result Text:</h1>
+    <p>{{ result_text }}</p>
+
+    <h1>Result Images:</h1>
+    <div class="image-container">
+        <img src="{{ url_for('static', filename=result_image1) }}" alt="Image 1">
+        <img src="{{ url_for('static', filename=result_image2) }}" alt="Image 2">
+        <img src="{{ url_for('static', filename=result_image3) }}" alt="Image 3">
+    </div>
+
+    <h1>Select Result HTML:</h1>
+    <form action="/show_html" method="post">
+        <select name="html_choice">
+            <option value="start_heatmap_map.html">HTML Template 1</option>
+            <option value="end_heatmap_map.html">HTML Template 2</option>
+            <option value="combined_heatmap_map.html">HTML Template 3</option>
+        </select>
+        <input type="submit" value="Show HTML">
+    </form>
+
+    <h1>Result HTML:</h1>
+    {{ result_html|safe }}
 </body>
 </html>

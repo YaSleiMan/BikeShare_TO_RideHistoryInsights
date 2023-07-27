@@ -49,7 +49,7 @@ Wellington St W / Bay St,43.647259,-79.379878
 Metro Hall Plaza,43.645859,-79.38783
 Navy Wharf Crt / Bremner Blvd,43.640722,-79.391051
 Jarvis St / Carlton St,43.66207,-79.37617
-Parliament St / Gerrard St,43.662132,-79.3656796
+Parliament St / Gerrard St E,43.662132,-79.3656796
 Simcoe St / Wellington St W South,43.6458569,-79.3853654
 Huron St / Harbord St,43.6637,-79.400053
 Front St W / Blue Jays Way,43.643473,-79.390477
@@ -144,7 +144,7 @@ Dufferin St / Bloor St W,43.66083333333333,-79.43583333333333
 King St W / Stafford St,43.6422222,-79.41111111111111
 King St W / Tecumseth St,43.64333333333333,-79.40555555555557
 Beverley St / College St,43.6575,-79.39527777777778
-Hayter St / Laplante Ave,43.6591666666667,-79.3855555555556
+Hayter St / La Plante Ave,43.6591666666667,-79.3855555555556
 Yonge St / Wood St,43.6622222,-79.3825
 Gould St / Yonge St (TMU),43.657424,-79.381019
 Queens Quay / Yonge St,43.641646,-79.375308
@@ -152,7 +152,7 @@ Front St W / Bay St (North Side),43.646162,-79.378912
 Spadina Ave / Willcocks St,43.6616667,-79.40138888888889
 Ontario Place Blvd / Lake Shore Blvd W,43.6322445,-79.4108105
 Strachan Ave / Princes' Blvd,43.635,-79.4088888888889
-Cariboo St / Rail Path,43.66666667,-79.45833333333334
+Cariboo Ave / Railpath Trail,43.66666667,-79.45833333333334
 Bloor St W / Dundas St W,43.6563889,-79.45166666666667
 HTO Park (Queens Quay W),43.63796,-79.387502
 Bathurst St / Fort York Blvd,43.639179,-79.399595
@@ -195,7 +195,7 @@ Lake Shore Blvd W / Windermere Ave,43.634896,-79.467763
 Lake Shore Blvd W / The Boulevard Club,43.636731,-79.444966
 Martin Goodman Trail (Marilyn Bell Park),43.6314,-79.4304
 Queen St W / Roncesvalles Ave,43.6372958,-79.4423237
-Dundas St W / Roncesvalles Green P - SMART,43.6534268,-79.4512787
+Dundas St W / Roncesvalles Ave Green P -SMART,43.6534268,-79.4512787
 Garden Ave / Roncesvalles Ave,43.643769,-79.447915
 Wright Ave / Sorauren Ave - SMART,43.646677,-79.442741
 Queen St W  /  Fuller Ave - SMART,43.640255,-79.439223
@@ -216,7 +216,6 @@ Howard Park Ave / Dundas St W - SMART,43.6521,-79.4486
 Baldwin St / Spadina Ave - SMART,43.654905,-79.398448
 Dovercourt Rd / Harrison St (Green P) - SMART,43.651145,-79.423742
 Ursula Franklin St / St. George St - SMART,43.660296,-79.397107
-The Royal Ontario Museum (Bloor St Entrance),43.668500046272165,-79.3946235999697
 Robert St / Bloor St W - SMART,43.665846,-79.404998
 John St  / Mercer St - SMART,43.6461,-79.3895
 Vanauley St / Queen St W - SMART,43.648437,-79.39838
@@ -293,7 +292,7 @@ Eastern Ave / Winnifred Ave,43.6592088,-79.3348396
 Morse St / Eastern Ave,43.657991,-79.340075
 Alton Ave / Dundas St E (Greenwood Park),43.66745,-79.329408
 Cherry Beach,43.637764,-79.345359
-Cherry Beach Sports Field (55 Unwin Ave),43.6408346,-79.3429074
+Cherry Beach Sports Fields (55 Unwin Ave),43.6408346,-79.3429074
 Logan Av / Gerrard St E,43.6672144,-79.3452697
 Regal Rd / Dufferin St,43.673939,-79.441159
 Pape Ave / Gamble Ave,43.690237,-79.350119
@@ -313,7 +312,7 @@ St Clair Ave W / Bathurst St.,43.683296,-79.418734
 Wells Hill Ave / St Clair Ave W,43.683351,-79.41562
 Queen St E / Nursewood Rd,43.673831,-79.281455
 Kewbeach Ave / Kenilworth Ave,43.666325,-79.3014
-Fort York Blvd / Bathurst St SMART,43.639052,-79.399792
+Fort York Blvd / Bathurst St - SMART,43.639052,-79.399792
 Alma Ave / Gladstone Ave SMART,43.6448617,-79.42822
 Lisgar St / Dundas St W - SMART,43.6493472,-79.42668
 Eglinton Ave W / Henning Ave SMART,43.7063473,-79.40161
@@ -351,7 +350,6 @@ Keele St / Vine Ave,43.66686,-79.46526
 Spadina Ave / Blue Jays Way,43.641705,-79.393295
 King St W / Jordan St,43.648928,-79.378623
 College Park - Yonge St Entrance,43.65988,-79.38279
-Bloor St W / Huron St,43.667023,-79.401805
 Barton Ave / Howland Ave - SMART,43.66842,-79.410585
 Tyndall Ave / King St W - SMART,43.638426,-79.429142
 Merton St / Mount Pleasant Rd,43.697819,-79.38786
@@ -369,13 +367,12 @@ Concord Ave / Bloor St W,43.66189,-79.42679
 Gothic Ave / Quebec Ave,43.65389,-79.4675
 Martin Goodman Trail / Remembrance Dr,43.63121,-79.41414
 Pacific Ave / Glenlake Ave,43.65716,-79.46478
-Lonsdale Rd / Spadina Rd,43.688526,-79.412903
 Dundas St E / George St,43.6574766,-79.373446
 Clendenan Ave / Rowland St - SMART,43.66073,-79.47149
 Eastwood Rd / Coxwell Ave,43.673118,-79.318651
 Orchard Park,43.66908,-79.3149
 Trent Ave / Danforth Ave,43.689293,-79.295895
-Goodwood Park Ct / Dentonia Park,43.694826,-79.295208
+Goodwood Park Crt / Dentonia Park,43.694826,-79.295208
 Cosburn Ave / Cedarvale Ave,43.697139,-79.31469
 Carlaw Ave / Danforth Ave,43.678285,-79.347346
 Western Battery Rd / Pirandello St,43.640075,-79.414156
@@ -390,7 +387,7 @@ High Park Outdoor Pool,43.649217,-79.465319
 High Park Amphitheatre,43.645653,-79.464366
 Richmond St E / Yonge St,43.651838,-79.378743
 Russell Hill Rd / St Clair Ave W,43.685569,-79.408019
-Glendonwynne Ave / Bloor St W,43.65182,-79.47421
+Glendonwynne Rd / Bloor St W,43.65182,-79.47421
 Lower Simcoe St / Bremner Blvd,43.64283,-79.38409
 Front St W / Simcoe St,43.6442,-79.38702
 Wellington St W / York St,43.646734,-79.38301
@@ -473,7 +470,6 @@ Weston Lions Park,43.698841,-79.519472
 Jameson Ave / Queen St W,43.63985,-79.43703
 Toronto Inukshuk Park,43.6323994,-79.40978179999999
 Carlaw Ave / Dundas St E,43.665076,-79.341509
-Highfield Rd / Gerrard St E,43.671771,-79.324961
 Cosburn Ave / Durant Ave,43.6935477,-79.3301658
 Bayview Ave / Lawren Harris Square,43.6548521,-79.35397680000001
 Front St E / Bayview Avenue,43.6535,-79.354068
@@ -514,7 +510,7 @@ Livingston Rd (Highland Creek Trail),43.7561681,-79.2026694
 Morningside Park (Highland Creek Trail),43.779353,-79.193023
 Colonel Danforth Park,43.7777114,-79.1659711
 Waterfront Trail (Rouge Hill),43.778015,-79.131911
-Starspray Ave / Lawrence Ave E,43.788319,-79.123505
+Starspray Blvd / Lawrence Ave E,43.788319,-79.123505
 Vaughan Rd / Oakwood Ave,43.6926825,-79.441042
 Braemar Ave / Eglinton Ave W,43.7041957,-79.4094472
 Eglinton Ave E / Redpath Ave,43.7078691,-79.39248
@@ -524,7 +520,7 @@ Guildwood GO Station (South),43.754978,-79.1971289
 Yonge St / Lawrence Ave E,43.7254665,-79.40115449999999
 Rouge Hill GO Station,43.7805505,-79.1301203
 Shaw St / Essex St - SMART,43.667076,-79.425116
-Lundy Ave / Etienne Brule Park,43.6625395,-79.5030161
+Lundy Ave / Étienne Brûlé Park,43.6625395,-79.5030161
 Twelfth St / Thirteenth St,43.6002896,-79.5108692
 Florence Gell Park,43.6615467,-79.498398
 Chiltern Hill Rd / Eglinton Ave W,43.7004017,-79.4275305
@@ -655,7 +651,7 @@ Ferrand Dr / Rochefort Dr,43.719632535237835,-79.33199950866776
 Thorncliffe Park Dr / Leaside Park Trail,43.70400405297843,-79.34807015078738
 75 Thorncliffe Park Dr,43.70518328279426,-79.34224729962946
 165 McRae Dr,43.70656159598004,-79.36781965092621
-Mt Pleasant Rd / Davisville Ave - SMART,43.70088225686968,-79.38736016665911
+Mount Pleasant Rd / Davisville Ave - SMART,43.70088225686968,-79.38736016665911
 St Clair Ave W / Avenue Rd ,43.68688938028234,-79.40099513147447
 Downsview Park Subway Station - SMART,43.753107,-79.479626
 60 Carl Hall Rd - SMART,43.7482972,-79.47570569999999
@@ -665,7 +661,13 @@ HTO Park West,43.63737145931921,-79.38976958703309
 Queens Quay E / Lower Jarvis St ,43.64392767366328,-79.3687301736982
 Lynn Williams St / Pirandello St ,43.639124514797004,-79.41423166721611
 Ossington Ave / Bruce St,43.64570236705167,-79.41933192053696
-Riverdale Park South (Broadview Ave),43.66793737272024,-79.35337335118456
 York St / Harbour St (Love Park),43.640741,-79.3798521
 519 Church St  - SMART,43.666850777484896,-79.38114574756837
 Dundas St E / River St,43.661152,-79.358505
+Shuter St/River St,43.659296,-79.358035
+Danforth Ave / Danforth Rd,43.69362206784152,-79.27710529695892
+Brimley Rd / McCowan District Park,43.72704086366749,-79.24391402446746
+Parkcrest Dr / Kingston Rd,43.73596719224253,-79.21995221481933
+King St W / Jameson Ave - SMART,43.63735795888104,-79.43617975886079
+Scarborough Soccer Centre,43.7154661,-79.2876595
+Lansdowne Ave / Seaforth Ave ,43.642904395956684,-79.43746059447746
