@@ -14,10 +14,10 @@ def location_to_coordinates(locations, visit_counts):
     r = requests.get('https://tor.publicbikesystem.net/ube/gbfs/v1/en/station_information')
     bikeshare_stations = json.loads(r.content)['data']['stations']
     bikeshare_stations = pd.DataFrame(bikeshare_stations)[['name', 'lat', 'lon']]
-    bikeshare_stations.to_csv('Data/bikeshare_stations.csv', index=False)
+    bikeshare_stations.to_csv('back-end/Data/bikeshare_stations.csv', index=False)
 
     # In case the station no longer exists, maybe it existed in 2019
-    bikeshare_stations_historical = pd.read_csv('Data/bikeshare_stations_historical_2019.csv')
+    bikeshare_stations_historical = pd.read_csv('BackEnd/Data/bikeshare_stations_historical_2019.csv')
 
     coordinates = []
     for location, visit_count in zip(locations,visit_counts):
