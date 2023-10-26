@@ -3,6 +3,7 @@ from PIL import ImageTk, Image
 from Selenium_GetData import selenium_getdata
 from Present_Data import present_data
 from Cost_Savings_Calculator import cost_savings_calculator
+import ast
 
 # Global Definition
 image_tk1 = None
@@ -19,8 +20,8 @@ def get_and_present():
     # Get input values from the entry widgets
     username = str(entry1.get())
     password = str(entry2.get())
-    startDate = entry3.get()
-    endDate = entry4.get()
+    startDate = ast.literal_eval(entry3.get())
+    endDate = ast.literal_eval(entry4.get())
 
     print(username)
     print(password)
