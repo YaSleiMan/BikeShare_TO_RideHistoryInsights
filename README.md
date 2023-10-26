@@ -1,6 +1,8 @@
 # Bike Share Toronto: Ride History Insights
 The Bike Share website only lets you look at a limited number of past trips at a time in the history section. This automation is used to obtain your full trip history and visualize that data much more easily.
 
+<img width="630" alt="pic" src="https://github.com/YaSleiMan/BikeShare_TO_RideHistoryInsights/assets/35861751/982206ab-8528-4c68-9886-94dc86f393b7">
+
 # How to Use
 1- Run the main.py function, this will open a GUI. Fill with login info and start/end dates and run. This will download all your trip data and then save it as txt file which will be used in the next steps
 
