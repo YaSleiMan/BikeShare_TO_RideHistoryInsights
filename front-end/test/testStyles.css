@@ -1,0 +1,39 @@
+/* div {
+    background-color: blueviolet;
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    margin: 20px;
+} */
+
+h1 {
+    text-align: end;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+table, td, th {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+#linum1 {
+    font-size: 15px;
+}
+
+.linum {
+    font-size: 12px;
+}
+
+ol > li {
+    color: aqua;
+}
+
+button:hover {
+        background-color: aqua;
+}
+
+div > img {
+    padding: 5px;
+}
