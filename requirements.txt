@@ -8,3 +8,4 @@ folium
 scipy
 selenium
 beautifulsoup4
+Django
