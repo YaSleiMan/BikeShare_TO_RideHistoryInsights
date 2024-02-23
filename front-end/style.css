@@ -1,0 +1,7 @@
+form > input {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 40vw;
+}
