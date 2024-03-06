@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bike Share Tracker</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <h1 style="text-align: center;">Toronto Bike Share Tracker</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            {% form %}
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
+
+{% comment %} <input type="text" placeholder="Login ID" name="email">
+<input type="password" placeholder="Password" name="password">
+<input type="date" placeholder="Start Date" name="start">
+<input type="date" placeholder="End Date" name="end"> {% endcomment %}
