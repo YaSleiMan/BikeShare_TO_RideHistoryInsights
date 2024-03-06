@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bike Share Tracker</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <h1 style="text-align: center;">Toronto Bike Share Tracker</h1>
+        <h2>Hello,{{name}}. The time is {{time}}</h2>
+        
+        {% if january %}
+            <h3>It is January</h3>
+        {% else %}
+            <h3>It is not January</h3>
+        {% endif %}
+
+        <ul>
+        {% for i in list %}
+            <li>{{i}}</li>
+        {% empty %}
+            <li>Empty</li>
+        {% endfor %}
+        </ul>
+
+        <a href="{% url 'hello:index' %}">Click Here</a>
+
+        <form method="post">
+            {% csrf_token %}
+            {% form %}
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>

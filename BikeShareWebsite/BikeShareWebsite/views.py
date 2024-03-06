@@ -14,17 +14,6 @@ class InputForm(forms.Form):
 def index(request):
     return render(request,"index.html")
 
-def greet(request, name):
-    return HttpResponse(f"Hello, {name}")
-
-def greethtml(request, name):
-    return render(request,"greet.html",{
-        "name":name.capitalize(),
-        "time":datetime.datetime.now(),
-        "january": datetime.datetime.now().month == 1,
-        "list": [1,2,3]
-    })
-
 def add(request):
     if request.method == "POST":
         form = InputForm(request.POST)
