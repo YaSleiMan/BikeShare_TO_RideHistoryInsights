@@ -5,3 +5,29 @@ form > input {
     text-align: center;
     width: 40vw;
 }
+
+body {
+    background-color: orange;
+    margin: 0;
+    padding: 0
+}
+
+h1 {
+    text-align: center; 
+    color: white
+}
+
+#backgroundContainer {
+    width: 100vw;
+    margin: 0; 
+    padding: 0;
+    display: flex; 
+    justify-content: center;
+    overflow-x: hidden
+}
+
+#background {
+    max-width: none;
+    height: 90vh;
+    object-fit: cover
+}
