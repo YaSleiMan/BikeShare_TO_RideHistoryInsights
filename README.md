@@ -30,4 +30,4 @@ The Bike Share website only lets you look at a limited number of past trips at a
 - ~~Add a cost savings calculation function to estimate how much money was saved by riding bikes instead of using the TTC.~~ ~~Forgot to account for the cost of ebike rides, needs an update.~~
 - Add statistics about: environmental benefits / calories burned / time saved / etc.
 - ~~Line up the bars of the histogram correctly with the x-axis in the rides per month graph~~
-- Make a website?
+- ~~Make a website?~~ Making a website using Django! 
